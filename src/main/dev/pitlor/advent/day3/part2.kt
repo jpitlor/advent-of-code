@@ -2,8 +2,9 @@ package main.dev.pitlor.advent.day3
 
 import main.dev.pitlor.advent.Utils
 import kotlin.math.ceil
+import kotlin.test.assertEquals
 
-private val answer = 5736383
+private const val answer = 5736383
 
 fun main() {
     fun List<Char>.mean(): Char {
@@ -40,5 +41,5 @@ fun main() {
 
     val o2Rating = o2Ratings.first().toInt(2)
     val co2Rating = co2Ratings.first().toInt(2)
-    println(o2Rating * co2Rating)
+    assertEquals(answer, o2Rating * co2Rating)
 }

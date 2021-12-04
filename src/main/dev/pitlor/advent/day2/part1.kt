@@ -1,8 +1,9 @@
 package main.dev.pitlor.advent.day2
 
 import main.dev.pitlor.advent.Utils
+import kotlin.test.assertEquals
 
-private val answer = 1524750
+private const val answer = 1524750
 
 fun main() {
     var x = 0
@@ -16,5 +17,5 @@ fun main() {
         }
     }
 
-    println(x * y)
+    assertEquals(answer, x * y)
 }

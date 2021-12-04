@@ -1,8 +1,9 @@
 package main.dev.pitlor.advent.day3
 
 import main.dev.pitlor.advent.Utils
+import kotlin.test.assertEquals
 
-private val answer = 3277364
+private const val answer = 3277364
 
 fun main() {
     fun <T> List<T>.mean(): T? {
@@ -18,5 +19,5 @@ fun main() {
 
     val gamma = gammaStr.toInt(2)
     val epsilon = gamma.inv() and 0b111111111111
-    println(gamma * epsilon)
+    assertEquals(answer, gamma * epsilon)
 }

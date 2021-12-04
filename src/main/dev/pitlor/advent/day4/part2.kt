@@ -1,6 +1,7 @@
 package main.dev.pitlor.advent.day4
 
 import main.dev.pitlor.advent.Utils
+import kotlin.test.assertEquals
 
 private val answer = 16836
 
@@ -46,5 +47,5 @@ fun main() {
     }
 
     val uncalledNumberSum = boards.first().uncalledNumbers().sum()
-    println(uncalledNumberSum * winningNumber)
+    assertEquals(answer, uncalledNumberSum * winningNumber)
 }
