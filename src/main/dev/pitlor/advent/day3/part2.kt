@@ -3,6 +3,8 @@ package main.dev.pitlor.advent.day3
 import main.dev.pitlor.advent.Utils
 import kotlin.math.ceil
 
+private val answer = 5736383
+
 fun main() {
     fun List<Char>.mean(): Char {
         val half = ceil(size / 2.0).toInt()

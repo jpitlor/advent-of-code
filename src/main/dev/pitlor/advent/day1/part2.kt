@@ -2,6 +2,8 @@ package main.dev.pitlor.advent.day1
 
 import main.dev.pitlor.advent.Utils
 
+private val answer = 1395
+
 fun main() {
     val lines = Utils.getInput(1).readLines().map(String::toInt).toList()
     val averages = lines.mapIndexed { i, x -> x + lines.getOrElse(i + 1) { 0 } + lines.getOrElse(i + 2) { 0 } }

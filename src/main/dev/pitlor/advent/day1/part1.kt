@@ -2,6 +2,8 @@ package main.dev.pitlor.advent.day1
 
 import main.dev.pitlor.advent.Utils
 
+private val answer = 1451
+
 fun main() {
     var timesIncreased = 0
     var last = Int.MAX_VALUE

@@ -2,6 +2,8 @@ package main.dev.pitlor.advent.day2
 
 import main.dev.pitlor.advent.Utils
 
+private val answer = 1524750
+
 fun main() {
     var x = 0
     var y = 0
