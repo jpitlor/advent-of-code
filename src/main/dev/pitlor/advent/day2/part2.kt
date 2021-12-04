@@ -5,12 +5,16 @@ import main.dev.pitlor.advent.Utils
 fun main() {
     var x = 0
     var y = 0
+    var aim = 0
     Utils.getInput(2).forEachLine {
         val (command, amount) = it.split(" ")
         when (command) {
-            "forward" -> x += amount.toInt()
-            "up" -> y -= amount.toInt()
-            "down" -> y += amount.toInt()
+            "forward" -> {
+                x += amount.toInt()
+                y += aim * amount.toInt()
+            }
+            "up" -> aim -= amount.toInt()
+            "down" -> aim += amount.toInt()
         }
     }
 
