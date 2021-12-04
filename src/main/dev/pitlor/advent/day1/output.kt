@@ -23,13 +23,13 @@ class Day1 {
     fun part2() {
         val answer = 1395
 
-        val averages = input.mapIndexed { i, x -> x + input.getOrElse(i + 1) { 0 } + input.getOrElse(i + 2) { 0 } }
+        val averages = input.mapIndexed { i, x ->
+            x + input.getOrElse(i + 1) { 0 } + input.getOrElse(i + 2) { 0 }
+        }
 
-        var timesIncreased = 0
-        var last = Int.MAX_VALUE
-        averages.forEach {
-            if (it > last) timesIncreased++
-            last = it
+        val timesIncreased = averages.foldRightIndexed(0) { i, d, acc ->
+            if (i > 0 && averages[i - 1] < d) acc + 1
+            else acc
         }
 
         assertEquals(answer, timesIncreased)
