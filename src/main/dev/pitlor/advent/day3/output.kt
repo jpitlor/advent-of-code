@@ -14,11 +14,9 @@ class Day3 : DayBase(3) {
             return distinct().maxByOrNull { x -> count { x == it } }
         }
 
-        val numbers = input.readLines()
-
         var gammaStr = ""
         for (i in 0..11) {
-            gammaStr += numbers.map { it[i] }.mean()
+            gammaStr += input.map { it[i] }.mean()
         }
 
         val gamma = gammaStr.toInt(2)
@@ -46,16 +44,14 @@ class Day3 : DayBase(3) {
             }
         }
 
-        val numbers = input.readLines()
-
-        var o2Ratings = numbers
+        var o2Ratings = input
         for (i in 0..11) {
             val mean = o2Ratings.map { it[i] }.mean()
             o2Ratings = o2Ratings.filter { it[i] == mean }
             if (o2Ratings.size == 1) break
         }
 
-        var co2Ratings = numbers
+        var co2Ratings = input
         for (i in 0..11) {
             val antimean = co2Ratings.map { it[i] }.antimean()
             co2Ratings = co2Ratings.filter { it[i] == antimean }

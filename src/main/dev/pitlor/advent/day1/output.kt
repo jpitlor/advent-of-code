@@ -5,7 +5,7 @@ import org.junit.Test
 import kotlin.test.assertEquals
 
 class Day1 : DayBase(1) {
-    private val depths = input.readLines().map(String::toInt)
+    private val depths = input.map(String::toInt)
 
     @Test
     fun part1() {

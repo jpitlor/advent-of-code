@@ -27,8 +27,6 @@ class Day4 : DayBase(4) {
             }
         }
 
-        val input = input.readLines()
-
         val calledNumbers = input.first().split(",").map(String::toInt)
 
         val boards = mutableListOf<Board>()
@@ -72,8 +70,6 @@ class Day4 : DayBase(4) {
                 return rows.flatten().filter { !marked.contains(it) }
             }
         }
-
-        val input = input.readLines()
 
         val calledNumbers = input.first().split(",").map(String::toInt)
 
