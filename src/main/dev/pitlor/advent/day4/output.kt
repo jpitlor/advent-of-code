@@ -4,28 +4,28 @@ import main.dev.pitlor.advent.DayBase
 import org.junit.Test
 import kotlin.test.assertEquals
 
+class Board(private val rows: List<List<Int>>) {
+    private val columns = IntRange(0, 4).map { i -> rows.map { it[i] } }
+    private val marked = mutableListOf<Int>()
+
+    fun hasBingo(): Boolean {
+        return rows.any { it.all { i -> marked.contains(i) } }
+                || columns.any { it.all { i -> marked.contains(i) } }
+    }
+
+    fun call(number: Int) {
+        marked += number
+    }
+
+    fun uncalledNumbers(): List<Int> {
+        return rows.flatten().filter { !marked.contains(it) }
+    }
+}
+
 class Day4 : DayBase(4) {
     @Test
     fun part1() {
         val answer = 38913
-
-        class Board(val rows: List<List<Int>>) {
-            val columns = IntRange(0, 4).map { i -> rows.map { it[i] } }
-            val marked = mutableListOf<Int>()
-
-            fun hasBingo(): Boolean {
-                return rows.any { it.all { i -> marked.contains(i) } }
-                        || columns.any { it.all { i -> marked.contains(i) } }
-            }
-
-            fun call(number: Int) {
-                marked += number
-            }
-
-            fun uncalledNumbers(): List<Int> {
-                return rows.flatten().filter { !marked.contains(it) }
-            }
-        }
 
         val calledNumbers = input.first().split(",").map(String::toInt)
 
@@ -52,24 +52,6 @@ class Day4 : DayBase(4) {
     @Test
     fun part2() {
         val answer = 16836
-
-        class Board(val rows: List<List<Int>>) {
-            val columns = IntRange(0, 4).map { i -> rows.map { it[i] } }
-            val marked = mutableListOf<Int>()
-
-            fun hasBingo(): Boolean {
-                return rows.any { it.all { i -> marked.contains(i) } }
-                        || columns.any { it.all { i -> marked.contains(i) } }
-            }
-
-            fun call(number: Int) {
-                marked += number
-            }
-
-            fun uncalledNumbers(): List<Int> {
-                return rows.flatten().filter { !marked.contains(it) }
-            }
-        }
 
         val calledNumbers = input.first().split(",").map(String::toInt)
 
