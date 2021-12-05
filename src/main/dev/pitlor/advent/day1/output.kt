@@ -1,18 +1,18 @@
 package main.dev.pitlor.advent.day1
 
-import main.dev.pitlor.advent.Utils
+import main.dev.pitlor.advent.DayBase
 import org.junit.Test
 import kotlin.test.assertEquals
 
-class Day1 {
-    private val input = Utils.getInput(1).readLines().map(String::toInt)
+class Day1 : DayBase(1) {
+    private val depths = input.readLines().map(String::toInt)
 
     @Test
     fun part1() {
         val answer = 1451
 
-        val timesIncreased = input.foldRightIndexed(0) { i, d, acc ->
-            if (i > 0 && input[i - 1] < d) acc + 1
+        val timesIncreased = depths.foldRightIndexed(0) { i, d, acc ->
+            if (i > 0 && depths[i - 1] < d) acc + 1
             else acc
         }
 
@@ -23,8 +23,8 @@ class Day1 {
     fun part2() {
         val answer = 1395
 
-        val averages = input.mapIndexed { i, x ->
-            x + input.getOrElse(i + 1) { 0 } + input.getOrElse(i + 2) { 0 }
+        val averages = depths.mapIndexed { i, x ->
+            x + depths.getOrElse(i + 1) { 0 } + depths.getOrElse(i + 2) { 0 }
         }
 
         val timesIncreased = averages.foldRightIndexed(0) { i, d, acc ->
