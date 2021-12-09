@@ -23,7 +23,7 @@ class Day8 : DayBase(8) {
                     2 -> 1
                     3 -> 7
                     4 -> 4
-                    5 -> { // 2 3 5
+                    5 -> {
                         if (wires.find { x -> x.length == 2 }!!.all { c -> it.contains(c) }) 3
                         else if (wires.find { x -> x.length == 4 }!!.count { c -> it.contains(c) } == 2) 2
                         else 5
