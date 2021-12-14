@@ -16,8 +16,14 @@ class Day12 : DayBase(12) {
             adjacents[n2]?.add(n1) ?: adjacents.put(n2, mutableListOf(n1))
         }
 
-        val tempAdjacents = adjacents.toMutableMap()
-
+        val routes = mutableMapOf(mutableListOf(START) to adjacents[START]!!)
+        while (routes.any { it.value.isNotEmpty() }) {
+            val current = routes.entries.first { it.value.isNotEmpty() }
+//            routes.putAll(current.value.map { it.associate { v ->
+//                val k = current.key
+//                k.add()
+//            } })
+        }
     }
 
     @Test
