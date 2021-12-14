@@ -23,3 +23,7 @@ fun <T> List<List<T>>.crossAll(predicate: (T) -> Boolean): Boolean {
 fun <T> List<List<T>>.crossCount(predicate: (T) -> Boolean): Int {
     return sumOf { it.count(predicate) }
 }
+
+operator fun <T> List<T>.get(i: Int, default: T): T {
+    return getOrElse(i) { default }
+}

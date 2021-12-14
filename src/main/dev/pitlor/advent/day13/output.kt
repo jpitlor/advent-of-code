@@ -1,8 +1,10 @@
 package main.dev.pitlor.advent.day13
 
 import main.dev.pitlor.advent.DayBase
+import main.dev.pitlor.advent.get
 import main.dev.pitlor.advent.crossCount
 import org.junit.Test
+import kotlin.test.assertEquals
 
 class Day13 : DayBase(13) {
     private val emptyLine = input.indexOf("")
@@ -15,8 +17,10 @@ class Day13 : DayBase(13) {
 
     @Test
     fun part1() {
-        var map = MutableList(coordinates.maxOf { it[0] }) { x ->
-            MutableList(coordinates.maxOf { it[1] }) { y ->
+        val answer = 847
+
+        var map = MutableList(coordinates.maxOf { it[0] } + 1) { x ->
+            MutableList(coordinates.maxOf { it[1] } + 1) { y ->
                 coordinates.contains(listOf(x, y))
             }
         }
@@ -27,7 +31,7 @@ class Day13 : DayBase(13) {
             "x" -> {
                 for (x in 0..location) {
                     for (y in map[x].indices) {
-                        map[x][y] = map[x][y] or map[location + x][y]
+                        map[x][y] = map[x][y] or map[location + (location - x), listOf()][y, false]
                     }
                 }
                 map = map.subList(0, location).toMutableList()
@@ -35,7 +39,7 @@ class Day13 : DayBase(13) {
             "y" -> {
                 for (y in 0..location) {
                     for (x in map.indices) {
-                        map[x][y] = map[x][y] or map[x][location + y]
+                        map[x][y] = map[x][y] or map[x][location + (location - y), false]
                     }
                 }
                 map = map.map { it.subList(0, location) }.toMutableList()
@@ -43,11 +47,47 @@ class Day13 : DayBase(13) {
             else -> throw Error()
         }
 
-        println(map.crossCount { it })
+        assertEquals(answer, map.crossCount { it })
     }
 
     @Test
     fun part2() {
+        var map = MutableList(coordinates.maxOf { it[0] } + 1) { x ->
+            MutableList(coordinates.maxOf { it[1] } + 1) { y ->
+                coordinates.contains(listOf(x, y))
+            }
+        }
 
+        for ((direction, value) in folds) {
+            val location = value.toInt()
+            when (direction) {
+                "x" -> {
+                    for (x in 0..location) {
+                        for (y in map[x].indices) {
+                            map[x][y] = map[x][y] or map[location + (location - x), listOf()][y, false]
+                        }
+                    }
+                    map = map.subList(0, location).toMutableList()
+                }
+                "y" -> {
+                    for (y in 0..location) {
+                        for (x in map.indices) {
+                            map[x][y] = map[x][y] or map[x][location + (location - y), false]
+                        }
+                    }
+                    map = map.map { it.subList(0, location) }.toMutableList()
+                }
+                else -> throw Error()
+            }
+        }
+
+        for (x in map[0].indices) {
+            for (y in map.indices) {
+                print(if (map[y][x]) "#" else " ")
+            }
+            println()
+        }
+        // ANSWER: BCZRCEAB
+        // TODO: Find a way to assert this
     }
 }
