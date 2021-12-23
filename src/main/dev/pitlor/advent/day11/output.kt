@@ -1,6 +1,6 @@
 package main.dev.pitlor.advent.day11
 
-import main.dev.pitlor.advent.*
+import main.dev.pitlor.advent.DayBase
 import org.junit.Test
 import java.lang.Integer.max
 import java.lang.Integer.min

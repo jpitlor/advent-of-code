@@ -1,8 +1,6 @@
 package main.dev.pitlor.advent.day16
 
 import main.dev.pitlor.advent.DayBase
-import main.dev.pitlor.advent.mutableFlatMap
-import main.dev.pitlor.advent.splitChars
 import org.junit.Test
 import kotlin.test.assertEquals
 

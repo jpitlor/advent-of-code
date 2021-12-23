@@ -1,23 +1,9 @@
 package main.dev.pitlor.advent.day15
 
 import main.dev.pitlor.advent.DayBase
-import main.dev.pitlor.advent.crossMapIndexed
-import main.dev.pitlor.advent.splitChars
 import org.junit.Test
 import java.lang.Integer.min
-import kotlin.collections.List
-import kotlin.collections.flatten
-import kotlin.collections.forEach
-import kotlin.collections.indices
-import kotlin.collections.last
-import kotlin.collections.listOf
-import kotlin.collections.listOfNotNull
-import kotlin.collections.map
-import kotlin.collections.minByOrNull
-import kotlin.collections.minus
-import kotlin.collections.mutableMapOf
 import kotlin.collections.set
-import kotlin.collections.toTypedArray
 import kotlin.test.assertEquals
 
 typealias Coord = Pair<Int, Int>

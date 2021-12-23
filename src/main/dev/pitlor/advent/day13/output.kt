@@ -1,8 +1,6 @@
 package main.dev.pitlor.advent.day13
 
 import main.dev.pitlor.advent.DayBase
-import main.dev.pitlor.advent.get
-import main.dev.pitlor.advent.crossCount
 import org.junit.Test
 import kotlin.test.assertEquals
 

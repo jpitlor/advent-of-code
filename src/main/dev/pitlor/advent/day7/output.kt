@@ -2,7 +2,7 @@ package main.dev.pitlor.advent.day7
 
 import main.dev.pitlor.advent.DayBase
 import org.junit.Test
-import kotlin.math.*
+import kotlin.math.abs
 import kotlin.test.assertEquals
 
 class Day7 : DayBase(7) {
