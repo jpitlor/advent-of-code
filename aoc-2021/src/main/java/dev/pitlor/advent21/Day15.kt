@@ -89,7 +89,7 @@ class Day15 : DayBase(15) {
 //        }
 
 //        println(maxRisk)
-        val result = iterativeDeepeningAStar(bigMap, { n -> 4 * ((end.first - n.first) + (end.second - n.second)) }, Pair(0, 0), end)
+//        val result = iterativeDeepeningAStar(bigMap, { n -> 4 * ((end.first - n.first) + (end.second - n.second)) }, Pair(0, 0), end)
     }
 
 
