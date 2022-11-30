@@ -99,5 +99,6 @@ class Day16 : DayBase(16) {
             }
         }
         println(getValue(packet))
+        TODO()
     }
 }

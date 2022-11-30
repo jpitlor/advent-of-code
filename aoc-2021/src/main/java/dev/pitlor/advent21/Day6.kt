@@ -4,7 +4,7 @@ import org.junit.Test
 import kotlin.test.assertEquals
 
 class Day6 : DayBase(6) {
-    var fish = input[0].split(",").map(String::toInt).toMutableList()
+    private var fish = input[0].split(",").map(String::toInt).toMutableList()
 
     @Test
     fun part1() {
