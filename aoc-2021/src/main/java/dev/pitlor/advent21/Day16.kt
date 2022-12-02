@@ -1,6 +1,7 @@
 package dev.pitlor.advent21
 
 import org.junit.Test
+import java.math.BigInteger
 import kotlin.test.assertEquals
 
 enum class PacketType {
@@ -41,8 +42,8 @@ class Day16 : DayBase(16) {
         when (val type = shiftBits(3)) {
             4 -> {
                 var value = ""
-                while (shiftBits(1) == 1) value += shiftBits(4).toString(2)
-                value += shiftBits(4).toString(2) // there's one last number
+                while (shiftBits(1) == 1) value += shiftBits(4).toString(2).padStart(4, '0')
+                value += shiftBits(4).toString(2).padStart(4, '0') // there's one last number
                 return LiteralPacket(version, value.toULong(2))
             }
             else -> {
@@ -80,6 +81,7 @@ class Day16 : DayBase(16) {
 
     @Test
     fun part2() {
+        val answer = 101501020883UL
         val packet = readPacket()
         fun getValue(packet: Packet): ULong {
             return when (packet) {
@@ -98,7 +100,6 @@ class Day16 : DayBase(16) {
                 }
             }
         }
-        println(getValue(packet))
-        TODO()
+        assertEquals(answer, getValue(packet))
     }
 }
