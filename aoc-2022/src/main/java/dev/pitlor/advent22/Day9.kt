@@ -7,6 +7,21 @@ import kotlin.math.sign
 class Day9 : DayBase(9) {
     data class Point(val x: Int, val y: Int)
 
+    fun printLocs(ch: Point, ct: Point, p: Set<Point>) {
+        for (j in 4 downTo 0) {
+            for (i in 0..5) {
+                val c = when (Point(i, j)) {
+                    ch -> "H"
+                    ct -> "T"
+//                    in p -> "#"
+                    else -> "."
+                }
+                print(c)
+            }
+            println()
+        }
+    }
+
     @Test
     fun part1() {
         var headLocation = Point(0, 0)
@@ -26,7 +41,7 @@ class Day9 : DayBase(9) {
 
                 val xDiff = headLocation.x - tailLocation.x
                 val yDiff = headLocation.y - tailLocation.y
-                if (abs(xDiff) < 2 && abs(yDiff) < 2)
+                if (abs(xDiff) < 2 && abs(yDiff) < 2) return@repeat
 
                 tailLocation = Point(tailLocation.x + xDiff.sign, tailLocation.y + yDiff.sign)
                 locations.add(tailLocation)
