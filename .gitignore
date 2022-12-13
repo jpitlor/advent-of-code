@@ -1,3 +1,3 @@
-resources/*
-.idea/libraries
+*/src/main/resources/*
+.idea/libraries/*
 target
