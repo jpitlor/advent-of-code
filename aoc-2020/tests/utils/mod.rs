@@ -11,7 +11,7 @@ fn get_client() -> Client {
     let jar = Jar::default();
     let session_token = env::var("AOC_SESSION_TOKEN").expect("No AOC Session Token set");
     let cookie_string = format!("session={}", session_token);
-    let url = Url::parse("adventofcode.com").expect("Could not parse domain to set cookie");
+    let url = Url::parse("https://adventofcode.com").expect("Could not parse domain to set cookie");
     jar.add_cookie_str(cookie_string.as_str(), &url);
     return ClientBuilder::new()
         .cookie_provider(Arc::new(jar))
@@ -19,7 +19,7 @@ fn get_client() -> Client {
         .expect("Could not create client to download input");
 }
 
-pub fn read_input(day: i32) -> Vec<String> {
+pub fn read_input_for_day(day: i8) -> Vec<String> {
     let path = format!("resources/day{}.txt", day);
     if !Path::new(&path).exists() {
         let url = format!("https://adventofcode.com/2020/day/{}/input", day);
