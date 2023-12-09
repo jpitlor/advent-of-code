@@ -1,4 +1,3 @@
-use std::fmt::{Display};
 use regex::Regex;
 
 struct BagPull {
@@ -63,7 +62,7 @@ pub fn parse_games(input: &str) -> Vec<Game> {
 }
 
 #[aoc(day2, part1)]
-pub fn day2_part1(games: &[Game]) -> i32 {
+pub fn part1(games: &[Game]) -> i32 {
     games
         .iter()
         .filter(|&g| is_game_possible(g, 12, 13, 14))
@@ -72,6 +71,6 @@ pub fn day2_part1(games: &[Game]) -> i32 {
 }
 
 #[aoc(day2, part2)]
-pub fn day2_part2(games: &[Game]) -> i32 {
+pub fn part2(games: &[Game]) -> i32 {
     games.iter().map(get_game_power).sum()
 }
