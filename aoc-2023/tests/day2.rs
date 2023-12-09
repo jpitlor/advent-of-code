@@ -1,0 +1,17 @@
+#[cfg(test)]
+mod day2 {
+    use std::fs;
+    use aoc_2023::day2;
+
+    #[test]
+    fn test_part1() {
+        let input = fs::read_to_string("input/2023/day2.txt");
+        assert_eq!(2505, day2::part1(input.unwrap().as_str()))
+    }
+
+    #[test]
+    fn test_part2() {
+        let input = fs::read_to_string("input/2023/day2.txt");
+        assert_eq!(70265, day2::part2(input.unwrap().as_str()))
+    }
+}
